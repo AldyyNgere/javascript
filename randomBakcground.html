@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        padding-top: 10rem;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+        font-size: 18px;
+        background-color: #eee;
+      }
+
+      .center {
+        display: flex;
+        justify-content: center;
+      }
+
+      .container {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        padding: 3rem;
+        border-radius: 12px;
+        background-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="text">You get <span id="color"></span> color</h1>
+      <div class="center">
+        <button id="btn" style="cursor: pointer">Get color</button>
+      </div>
+    </div>
+    <script>
+      const colors = [
+        "red",
+        "blue",
+        "orange",
+        "black",
+        "green",
+        "tomato",
+        "violet",
+        "pink",
+        "lightblue",
+        "Lightgreen",
+        "orangered",
+        "brown",
+        "purple",
+      ];
+
+      const text = document.getElementById("text");
+      const color = document.getElementById("color");
+      const btn = document.getElementById("btn");
+
+      btn.addEventListener("click", () => {
+        const randomNumber = getRandomNumber();
+        document.body.style.backgroundColor = colors[randomNumber];
+        color.textContent = colors[randomNumber];
+        text.style.color = colors[randomNumber];
+      });
+      function getRandomNumber() {
+        return Math.floor(Math.random() * colors.length);
+      }
+    </script>
+  </body>
+</html>
